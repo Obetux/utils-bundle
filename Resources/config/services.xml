@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="qubit.utilities.tracking_code" class="Qubit\Bundle\UtilsBundle\Generator\TrackingCode" public="true"/>
+
+        <service id="qubit.json.decoder" class="Qubit\Bundle\UtilsBundle\Decoder\QubitJsonDecoder"/>
+
+        <service id="qubit.context.annotation_subscriber" class="Qubit\Bundle\UtilsBundle\EventSubscriber\ContextAnnotationSubscriber">
+            <argument type="service" id="annotations.cached_reader" />
+            <tag name="kernel.event_listener" event="kernel.controller" method="onKernelController"/>
+        </service>
+    </services>
+
+</container>

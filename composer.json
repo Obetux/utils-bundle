@@ -1,0 +1,36 @@
+{
+    "name": "qubit/utils-bundle",
+    "description": "Qubit utilities",
+    "type": "symfony-bundle",
+    "license": "WTFPL",
+    "authors": [
+        {
+            "name": "Sebastian Poliak",
+            "email": "spoliak@qubit.tv"
+        },
+        {
+            "name": "Daniel Carrizo",
+            "email": "dcarrizo@qubit.tv"
+        }
+    ],
+    "require": {
+        "firebase/php-jwt": "^5.0"
+    },
+    "require-dev": {
+        "bruli/php-git-hooks": "^4.12"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "PhpGitHooks\\Infrastructure\\Composer\\ConfiguratorScript::buildConfig"
+        ],
+        "post-update-cmd": [
+            "PhpGitHooks\\Infrastructure\\Composer\\ConfiguratorScript::buildConfig"
+        ]
+    },
+    "autoload": {
+        "psr-4": { "Qubit\\Bundle\\UtilsBundle\\": "" },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    }
+}
